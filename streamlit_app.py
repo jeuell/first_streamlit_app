@@ -25,7 +25,11 @@ sl.dataframe(fruits_to_show)
 # Display the table on the page.
 
 sl.header("Fruityvice Fruit Advice!")
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
+
+fruit_choice = sl.text_input('What fruit would you like information about?','Kiwi')
+sl.write('The user entered ', fruit_choice)
+
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # sl.text(fruityvice_response.json()) #
 
 # write your own comment -what does the next line do? 
