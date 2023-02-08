@@ -61,6 +61,7 @@ if sl.button('Get Fruit Load List'):
 #   sl.text('yay1')
    my_data_rows = get_fruit_load_list()
 #   sl.text('yay2')
+   my_cnx.close()
    sl.dataframe(my_data_rows)
 
 # Allow the end user to add a fruit to the list
@@ -74,6 +75,7 @@ if sl.button('Add a Fruit to the List'):
    my_cnx = snowflake.connector.connect(**sl.secrets["snowflake"])
    back_from_function = insert_row_snowflake(add_my_fruit)
    sl.text (back_from_function)
+   my_cnx.close()
    
 # don't run anything past here while we troubleshoot
 sl.stop()
