@@ -47,17 +47,17 @@ except URLError as e:
 
 sl.header ("The fruit load list contains:") 
 #Snowflake-related functions
-def get_fruit_load_list(my_cnx):
+def get_fruit_load_list():
    with my_cnx.cursor() as my_cur:
       my_cur.execute("select * from fruit load list")
-      print('yay')
+      sl.text('yay')
       return my_cur.fetchall()
 
 # Add a button to load the fruit
-if sl.button ('Get Fruit Load List'):
-   print('yay0')
+if sl.button('Get Fruit Load List'):
+   sl.text('yay0')
    my_cnx = snowflake.connector.connect(**sl.secrets["snowflake"])
-   my_data_rows = get_fruit_load_list(my_cnx)
+   my_data_rows = get_fruit_load_list()
    sl.dataframe(my_data_rows)
    
 # don't run anything past here while we troubleshoot
