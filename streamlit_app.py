@@ -25,9 +25,7 @@ sl.dataframe(fruits_to_show)
 
 # Display the table on the page.
 
-sl.header("Fruityvice Fruit Advice!")
-
-#New Section to display fruityvice api response
+# New Section to display fruityvice api response
 sl.header('Fruityvice Fruit Advice!')
 try:
    fruit_choice = sl.text_input('What fruit would you like information about?')
@@ -41,7 +39,9 @@ try:
 except URLError as e:
    sl.error ()
 
-"""
+sl.stop()
+
+   """
 fruit_choice = sl.text_input('What fruit would you like information about?','Kiwi')
 sl.write('The user entered ', fruit_choice)
 
@@ -55,7 +55,7 @@ sl.dataframe(fruityvice_normalized)
 """
                                 
 # don't run anything past here while we troubleshoot
-sl.stop()
+
 
 my_cnx = sf.connector.connect(**sl.secrets["snowflake"])
 my_cur = my_cnx.cursor()
