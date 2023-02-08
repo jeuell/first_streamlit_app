@@ -58,7 +58,6 @@ if sl.button ('Get Fruit Load List'):
    my_data_rows = get_fruit_load_list(my_cnx)
    sl.dataframe(my_data_rows)
 else:
-   URLError as e
    sl.error ()
    
 # don't run anything past here while we troubleshoot
