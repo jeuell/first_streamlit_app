@@ -59,7 +59,8 @@ if sl.button('Get Fruit Load List'):
    sl.text('yay0')
    my_cnx = snowflake.connector.connect(**sl.secrets["snowflake"])
    sl.text('yay1')
-   my_data_rows = ['yayfruit' , 'fruit'] #get_fruit_load_list()
+   my_data_rows = ['yayfruit' , 'fruit'] #
+   yay4 = get_fruit_load_list()
    sl.text('yay2')
    sl.dataframe(my_data_rows)
    
