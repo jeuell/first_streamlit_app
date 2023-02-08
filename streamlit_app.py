@@ -40,9 +40,6 @@ try:
       sl.error("Please select a fruit to get information.")
    else:
       sl.dataframe(get_fruityvice_data('kiwi'))
-      #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-      #fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-      #sl.dataframe(fruityvice_normalized)
                                 
 except URLError as e:
    sl.error ()
@@ -53,7 +50,7 @@ sl.header ("The fruit load list contains:")
 def get_fruit_load_list():
    with my_cnx.cursor() as my_cur:
       my_cur.execute("select * from fruit load list")
-   return my_cur.fetchall()
+      return my_cur.fetchall()
 
 # Add a button to load the fruit
 if sl.button ('Get Fruit Load List'):
