@@ -47,3 +47,6 @@ my_data_rows = my_cur.fetchall()
 #sl.text("Hello from Snowflake:")
 sl.header("My fruit list contains:")
 sl.dataframe(my_data_rows)
+
+add_my_fruit = sl.text_input('What fruit would you like to add?','Jackfruit')
+sl.write('Thanks for adding ', add_my_fruit)
