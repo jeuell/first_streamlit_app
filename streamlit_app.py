@@ -26,15 +26,23 @@ sl.dataframe(fruits_to_show)
 # Display the table on the page.
 
 # New Section to display fruityvice api response
+
+#create the repeatable code block (called a function)
+def get_fruityvice_data(this_fruit_choice):
+   fruityvice_response = requests.get ("https://fruityvice.com/api/fruit/" + this_fruit_choice)
+   fruityvice_normalized = pd.json_normalize(fruityvice_response.json ())
+   return fruityvice_normalized
+
 sl.header('Fruityvice Fruit Advice!')
 try:
    fruit_choice = sl.text_input('What fruit would you like information about?')
    if not fruit_choice:
       sl.error("Please select a fruit to get information.")
    else:
-      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-      fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-      sl.dataframe(fruityvice_normalized)
+      sl.dataframe(get_fruityvice_data('kiwi'))
+      #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+      #fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+      #sl.dataframe(fruityvice_normalized)
                                 
 except URLError as e:
    sl.error ()
