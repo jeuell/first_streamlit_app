@@ -57,11 +57,14 @@ if sl.button ('Get Fruit Load List'):
    my_cnx = snowflake.connector.connect(**sl.secrets["snowflake"])
    my_data_rows = get_fruit_load_list(my_cnx)
    sl.dataframe(my_data_rows)
-                                                         
+else:
+   URLError as e
+   sl.error ()
+   
 # don't run anything past here while we troubleshoot
 sl.stop()
 
-
+'''
 # my_cnx = sf.connector.connect(**sl.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
@@ -76,3 +79,4 @@ sl.write('Thanks for adding ', add_my_fruit)
 
 #This will not work correctly, but just go with it for now
 my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+'''
