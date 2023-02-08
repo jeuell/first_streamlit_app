@@ -30,7 +30,7 @@ sl.header("Fruityvice Fruit Advice!")
 #New Section to display fruityvice api response
 sl.header('Fruityvice Fruit Advice!')
 try:
-   fruit_choice = sl.text_input('What fruit would you like information about?")
+   fruit_choice = sl.text_input('What fruit would you like information about?')
    if not fruit_choice:
       sl.error("Please select a fruit to get information.")
    else:
