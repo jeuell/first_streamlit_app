@@ -1,8 +1,9 @@
 
 import streamlit as sl
 import pandas as pd
-
 import requests
+import snowflake.connector as sf
+from urllib.error import URLError
 
 sl.title("My Mom's Healthy Diner")
 sl.header('Breakfast Favorites')
@@ -40,9 +41,7 @@ sl.dataframe(fruityvice_normalized)
 # don't run anything past here while we troubleshoot
 sl.stop()
 
-import snowflake.connector
-
-my_cnx = snowflake.connector.connect(**sl.secrets["snowflake"])
+my_cnx = sf.connector.connect(**sl.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 my_cur.execute("SELECT * from fruit_load_list")
