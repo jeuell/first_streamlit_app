@@ -41,7 +41,7 @@ except URLError as e:
 
 sl.stop()
 
-   """
+"""
 fruit_choice = sl.text_input('What fruit would you like information about?','Kiwi')
 sl.write('The user entered ', fruit_choice)
 
