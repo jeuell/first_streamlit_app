@@ -2,7 +2,7 @@
 import streamlit as sl
 import pandas as pd
 import requests
-import snowflake.connector as sf
+import snowflake.connector
 from urllib.error import URLError
 
 sl.title("My Mom's Healthy Diner")
@@ -54,7 +54,7 @@ def get_fruit_load_list():
 
 # Add a button to load the fruit
 if sl.button ('Get Fruit Load List'):
-   my_cnx = sf.connect(**sl.secrets["snowflake"])
+   my_cnx = snowflake.connector.connect(**sl.secrets["snowflake"])
    my_data_rows = get_fruit_load_list()
    sl.dataframe(my_data_rows)
                                                          
@@ -62,7 +62,7 @@ if sl.button ('Get Fruit Load List'):
 sl.stop()
 
 
-my_cnx = sf.connector.connect(**sl.secrets["snowflake"])
+# my_cnx = sf.connector.connect(**sl.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 my_cur.execute("SELECT * from fruit_load_list")
