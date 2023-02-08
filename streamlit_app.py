@@ -50,15 +50,15 @@ sl.header ("The fruit load list contains:")
 def get_fruit_load_list(my_cnx):
    with my_cnx.cursor() as my_cur:
       my_cur.execute("select * from fruit load list")
+      print('yay')
       return my_cur.fetchall()
 
 # Add a button to load the fruit
 if sl.button ('Get Fruit Load List'):
+   print('yay0')
    my_cnx = snowflake.connector.connect(**sl.secrets["snowflake"])
    my_data_rows = get_fruit_load_list(my_cnx)
    sl.dataframe(my_data_rows)
-else:
-   sl.error ()
    
 # don't run anything past here while we troubleshoot
 sl.stop()
