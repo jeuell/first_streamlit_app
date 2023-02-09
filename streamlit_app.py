@@ -62,7 +62,7 @@ if sl.button('Get Fruit List'):
    my_data_rows = get_fruit_load_list()
 #   sl.text('yay2')
    my_cnx.close()
-   sl.dataframe(my_data_rows).index=False
+   sl.dataframe(my_data_rows).index
 
 # Allow the end user to add a fruit to the list
 def insert_row_snowflake(new_fruit):
